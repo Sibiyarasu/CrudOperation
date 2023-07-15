@@ -14,8 +14,8 @@ namespace PrivateFolder.Sibi
         public string coursename { get; set; }
         public int Duration { get; set; }
         public string University { get; set; }
-        public string startDate { get; set; }
-        public int seats { get; set; }
+        public string StartDate { get; set; }
+        public int Seats { get; set; }
 
 
     }
@@ -42,11 +42,11 @@ namespace PrivateFolder.Sibi
 
 
             Console.WriteLine("Enter the course Start Date");
-            S.startDate = Convert.ToString(Console.ReadLine());
+            S.StartDate = Convert.ToString(Console.ReadLine());
 
 
             Console.WriteLine("Enter  the Number of seats Available");
-            S.seats = Convert.ToInt32(Console.ReadLine());
+            S.Seats = Convert.ToInt32(Console.ReadLine());
             return S;
         }
 
@@ -64,7 +64,7 @@ namespace PrivateFolder.Sibi
                 SqlConnection con = new SqlConnection(conectionstring);
 
                 con.Open();
-                con.Execute($"exec InsertInfo '{A.coursename}',{A.Duration},'{A.University}','{A.startDate}',{A.seats}");
+                con.Execute($"exec InsertInfo '{A.coursename}',{A.Duration},'{A.University}','{A.StartDate}',{A.Seats}");
 
                 con.Close();
 
@@ -95,7 +95,7 @@ namespace PrivateFolder.Sibi
                 connection.Close();
                 foreach (var a in c)
                 {
-                    Console.WriteLine($" Course Name is - {a.coursename } Duration of the Course is - {a.Duration}   Name of the University is - {a.University}  Course Starting Date is - {a.startDate} Number of Seats Available For the Course is - {a.seats}");
+                    Console.WriteLine($" Course Name - {a.coursename } Duration  - {a.Duration}  University  - {a.University}  Starting Date is - {a.StartDate} Number of Seats Available - {a.Seats}");
                 }
 
                 return c;
